@@ -9,7 +9,8 @@ namespace Mobs.Character
         private static Player _instance;
         public static Player Instance => _instance;
         [SerializeField] private float speed,dashSpeed;
-        private bool stunned,dash;
+        private bool stunned;
+        public bool dash;
         private Rigidbody2D rb;
         private Animator animator;
         Vector3 mousePosition;
