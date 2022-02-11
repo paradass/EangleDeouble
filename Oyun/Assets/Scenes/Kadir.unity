@@ -206,3 +206,114 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1203880464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203880466}
+  - component: {fileID: 1203880465}
+  m_Layer: 0
+  m_Name: hedef
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1203880465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203880464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8333f4188662976409472b926f0315a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1203880464}
+  position: {fileID: 3699278673616760333, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  unknownpeople:
+  - {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  - {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  - {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  - {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  - {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  unknownman: {fileID: 4325680570356980209, guid: a72416a61c2961946a3748867c1e1856, type: 3}
+  distancey:
+  - -1
+  - -2
+  - -3
+  - -4
+  - -5
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  distancex:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - -1
+  - -2
+  - -3
+  - -4
+  - -5
+  - -6
+  - -7
+  - -8
+  - -9
+  - -10
+  randomnumbe: 0
+  maxAndminValue:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  rotasiations1:
+  - -130
+  - -100
+  - -160
+  rotasiations2:
+  - -447.8
+  - -404.3
+  - -372
+  rotasiations3:
+  - 180
+  - 152.2
+  - 112.4
+  rotasiations4:
+  - 45.4
+  - 4.3
+  - 81.2
+  rotatiaton: {x: 0, y: 0, z: 0, w: 0}
+  canspawnnow: 0
+  positionspawnnum: 0
+--- !u!4 &1203880466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203880464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.17000008, y: 0.099999994, z: -8.600868}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
