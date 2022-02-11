@@ -6,12 +6,18 @@ namespace Mobs.Character
 {
     public class Player : MonoBehaviour
     {
+        private static Player _instance;
+        public static Player Instance => _instance;
         [SerializeField] private float speed,dashSpeed;
-        private bool stunned,dashe;
+        private bool stunned,dash;
         private Rigidbody2D rb;
         private Animator animator;
         Vector3 mousePosition;
         Vector2 direction;
+        private void Awake()
+        {
+            _instance = this;
+        }
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -42,7 +48,7 @@ namespace Mobs.Character
 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    dashe = true;
+                    dash = true;
                     rb.velocity = transform.up* dashSpeed;
                     Invoke("ResetVelocity", 0.3f);
                 }
@@ -51,7 +57,7 @@ namespace Mobs.Character
 
         void Slow()
         {
-            if (dashe)
+            if (dash)
             {
                 if(rb.velocity.x > 0 && rb.velocity.y > 0)
                 {
@@ -61,7 +67,7 @@ namespace Mobs.Character
         }
         void ResetVelocity()
         {
-            dashe = false;
+            dash = false;
             rb.velocity = new Vector3(0, 0, 0);
         }
 
@@ -96,6 +102,14 @@ namespace Mobs.Character
             if (collision.gameObject.tag == "Customer")
             {
                 stunned = true;
+                CancelInvoke("CancelStun");
+                Invoke("CancelStun", 2);
+            }
+
+            if (collision.gameObject.tag == "Water" && dash)
+            {
+                stunned = true;
+                rb.velocity = transform.up * 3;
                 CancelInvoke("CancelStun");
                 Invoke("CancelStun", 2);
             }
