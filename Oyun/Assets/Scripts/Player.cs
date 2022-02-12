@@ -128,7 +128,7 @@ namespace Mobs.Character
         {
             stunned = true;
             CancelInvoke("CancelStun");
-            Invoke("CancelStun", 2);
+            Invoke("CancelStun", 1.5f);
         }
 
         public void Slip()

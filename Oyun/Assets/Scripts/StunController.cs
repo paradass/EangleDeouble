@@ -17,8 +17,8 @@ public class StunController : MonoBehaviour
         if (Player.Instance.stunned == true)
         {
             text.SetActive(true);
-            text.transform.position = new Vector3(player.transform.position.x, player.transform.position.y+1,3);
-
+            text.transform.position = new Vector2(player.transform.position.x, player.transform.position.y+1);
+            text.transform.position = new Vector3(transform.position.x,transform.position.y,-3);
         }
         else if (Player.Instance.stunned == false)
         {
