@@ -235,8 +235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5650909e2c8d5cf478f93ad141d86cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouse: {fileID: 0}
   speed: 2
+  rotationSpeed: 0
   dashSpeed: 10
   score: 0
+  healt: 3
+  stunned: 0
   dash: 0
   scoreText: {fileID: 0}
+  healtText: {fileID: 0}
