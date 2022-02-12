@@ -13,7 +13,7 @@ namespace Mobs.Character
         [SerializeField] private GameObject mouse;
         [SerializeField] private float speed,rotationSpeed,dashSpeed;
         public int score,healt = 3;
-        private bool stunned;
+        public bool stunned;
         public bool dash;
         private Rigidbody2D rb;
         private Animator animator;
