@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Mobs.Character
 {
@@ -45,7 +46,7 @@ namespace Mobs.Character
             healtText.text = healt.ToString();
             if(healt <= 0)
             {
-                print("Öldün");
+                SceneManager.LoadScene("Game");
             }
         }
 
@@ -58,10 +59,10 @@ namespace Mobs.Character
                     mousePosition = Input.mousePosition;
                     mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
                     direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-                    mouse.transform.up = direction;
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, mouse.transform.rotation, rotationSpeed*Time.deltaTime);
-                    //Quaternion rotateDirection = Quaternion.LookRotation(direction);
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, rotateDirection, 1);
+                    transform.up = direction;
+                    //mouse.transform.up = direction;
+                    //transform.rotation = Quaternion.RotateTowards(transform.rotation, mouse.transform.rotation, rotationSpeed*Time.deltaTime);
+
                     transform.Translate(0, speed * Time.deltaTime, 0);
                 }
 
