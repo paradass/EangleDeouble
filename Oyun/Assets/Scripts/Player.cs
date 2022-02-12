@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mobs.Character
 {
@@ -9,12 +10,14 @@ namespace Mobs.Character
         private static Player _instance;
         public static Player Instance => _instance;
         [SerializeField] private float speed,dashSpeed;
+        public int score;
         private bool stunned;
         public bool dash;
         private Rigidbody2D rb;
         private Animator animator;
         Vector3 mousePosition;
         Vector2 direction;
+        [SerializeField] private Text scoreText;
         private void Awake()
         {
             _instance = this;
@@ -23,6 +26,7 @@ namespace Mobs.Character
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            InvokeRepeating("AddScore", 0, 1);
         }
 
         void Update()
@@ -30,6 +34,7 @@ namespace Mobs.Character
             Move();
             Slow();
             SetPosition();
+            scoreText.text = score.ToString();
         }
 
         void Move()
@@ -96,23 +101,38 @@ namespace Mobs.Character
         void CancelStun()
         {
             stunned = false;
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+
+        void AddScore()
+        {
+            score++;
+            print(score);
+        }
+
+        public void Stun()
+        {
+            stunned = true;
+            CancelInvoke("CancelStun");
+            Invoke("CancelStun", 2);
+        }
+
+        public void Slip()
+        {
+            rb.velocity = transform.up * dashSpeed/10;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Customer")
             {
-                stunned = true;
-                CancelInvoke("CancelStun");
-                Invoke("CancelStun", 2);
+                Stun();
             }
 
             if (collision.gameObject.tag == "Water" && dash)
             {
-                stunned = true;
                 rb.velocity = transform.up * 3;
-                CancelInvoke("CancelStun");
-                Invoke("CancelStun", 2);
+                Stun();
             }
         }
     }
