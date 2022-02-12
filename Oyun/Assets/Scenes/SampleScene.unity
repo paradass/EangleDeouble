@@ -351,6 +351,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &663043781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663043782}
+  m_Layer: 0
+  m_Name: Mouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663043782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663043781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 851.9684, y: 327.5974, z: -59.858807}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &811811565
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +782,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3100962608738615906, guid: c3bd2e5ecec9d4f4cb36f6fab54b7b77, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 663043781}
+    - target: {fileID: 3100962608738615906, guid: c3bd2e5ecec9d4f4cb36f6fab54b7b77, type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100962608738615906, guid: c3bd2e5ecec9d4f4cb36f6fab54b7b77, type: 3}
       propertyPath: healtText
       value: 
       objectReference: {fileID: 466332910}
@@ -759,6 +797,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1538178735}
+    - target: {fileID: 3100962608738615906, guid: c3bd2e5ecec9d4f4cb36f6fab54b7b77, type: 3}
+      propertyPath: rotationSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3627846439502738532, guid: c3bd2e5ecec9d4f4cb36f6fab54b7b77, type: 3}
       propertyPath: m_RootOrder
       value: 1

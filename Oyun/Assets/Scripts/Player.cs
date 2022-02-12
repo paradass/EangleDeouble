@@ -9,7 +9,8 @@ namespace Mobs.Character
     {
         private static Player _instance;
         public static Player Instance => _instance;
-        [SerializeField] private float speed,dashSpeed;
+        [SerializeField] private GameObject mouse;
+        [SerializeField] private float speed,rotationSpeed,dashSpeed;
         public int score,healt = 3;
         private bool stunned;
         public bool dash;
@@ -57,7 +58,8 @@ namespace Mobs.Character
                     mousePosition = Input.mousePosition;
                     mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
                     direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-                    transform.up = direction;
+                    mouse.transform.up = direction;
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, mouse.transform.rotation, rotationSpeed*Time.deltaTime);
                     //Quaternion rotateDirection = Quaternion.LookRotation(direction);
                     //transform.rotation = Quaternion.Lerp(transform.rotation, rotateDirection, 1);
                     transform.Translate(0, speed * Time.deltaTime, 0);
