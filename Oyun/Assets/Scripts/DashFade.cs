@@ -9,6 +9,7 @@ public class DashFade : MonoBehaviour
     public float spawningtime = 0;
     public float startspawningtime;
 
+    public float dashtime;
 
     void Start()
     {
@@ -29,12 +30,19 @@ public class DashFade : MonoBehaviour
 
             if(spawningtime < startspawningtime)
             {
-               GameObject ins= Instantiate(samplePlayer, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-                Destroy(ins,2f); 
+                GameObject ins = Instantiate(samplePlayer, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+               
+                Destroy(ins,dashtime); 
                 spawningtime = spawningtime + 1;
             }
 
 
         }
+        if (Player.Instance.dash == false)
+        {
+            spawningtime = 0;
+        }
+
     }
+
 }

@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  dashSpeed: 20
+  dashSpeed: 10
   score: 0
   dash: 0
   scoreText: {fileID: 0}

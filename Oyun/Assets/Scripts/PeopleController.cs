@@ -103,7 +103,8 @@ public class PeopleController : MonoBehaviour
 
         yield return new WaitForSeconds(maxAndminValue[Random.Range(0,maxAndminValue.Length)]);
             
-            Instantiate(unknownman, position.position, rotatiaton);
+            GameObject man=Instantiate(unknownman, position.position, rotatiaton);
+            Destroy(man, 10f);
             canspawnnow = true;
             StartCoroutine(spawningthings());
             

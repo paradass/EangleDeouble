@@ -8,6 +8,7 @@ public class PeopleLeftOversCont : MonoBehaviour
     public GameObject leftover;
 
     public float[] whenbreaks;
+    public bool _ILeftitOver;
 
     public bool canspawnleftovers;
     void Start()
@@ -32,9 +33,16 @@ public class PeopleLeftOversCont : MonoBehaviour
     }
     IEnumerator LeftoverSpawn()
     {
-        Instantiate(leftover, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        yield return new WaitForSeconds(whenbreaks[Random.Range( 0, whenbreaks.Length)]);
-        canspawnleftovers = true;
-        StartCoroutine(LeftoverSpawn());
+        if (_ILeftitOver == false)
+        {
+            yield return new WaitForSeconds(whenbreaks[Random.Range(0, whenbreaks.Length)]);
+            Instantiate(leftover, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            
+            canspawnleftovers = true;
+            _ILeftitOver = true;
+            StartCoroutine(LeftoverSpawn());
+        }
+
+        
     }
 }
