@@ -4,9 +4,12 @@ using UnityEngine;
 using Mobs.Character;
 public class DashFade : MonoBehaviour
 {
-    public GameObject player;
+    
+    public GameObject samplePlayer;
     public float spawningtime = 0;
     public float startspawningtime;
+
+
     void Start()
     {
         clonsettings();
@@ -14,21 +17,24 @@ public class DashFade : MonoBehaviour
 
     void clonsettings()
     {
-        player.transform.gameObject.GetComponent<Collider2D>().enabled = false;
+        samplePlayer.transform.gameObject.GetComponent<Collider2D>().enabled = false;
 
     }
 
     void Update()
     {
         
-        if (Player.Instance.dash == true&&spawningtime< startspawningtime)
+        if (Player.Instance.dash == true)
         {
 
+            if(spawningtime < startspawningtime)
+            {
+               GameObject ins= Instantiate(samplePlayer, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(ins,2f); 
+                spawningtime = spawningtime + 1;
+            }
 
 
-                GameObject ins = Instantiate(player, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-                Destroy(ins, 2f);
-            spawningtime++;
         }
     }
 }
