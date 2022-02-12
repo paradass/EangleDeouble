@@ -10,14 +10,14 @@ namespace Mobs.Character
         private static Player _instance;
         public static Player Instance => _instance;
         [SerializeField] private float speed,dashSpeed;
-        public int score;
+        public int score,healt = 3;
         private bool stunned;
         public bool dash;
         private Rigidbody2D rb;
         private Animator animator;
         Vector3 mousePosition;
         Vector2 direction;
-        [SerializeField] private Text scoreText;
+        [SerializeField] private Text scoreText,healtText;
         private void Awake()
         {
             _instance = this;
@@ -34,7 +34,18 @@ namespace Mobs.Character
             Move();
             Slow();
             SetPosition();
+            Healt();
             scoreText.text = score.ToString();
+            
+        }
+
+        void Healt()
+        {
+            healtText.text = healt.ToString();
+            if(healt <= 0)
+            {
+                print("Öldün");
+            }
         }
 
         void Move()
@@ -127,6 +138,7 @@ namespace Mobs.Character
             if (collision.gameObject.tag == "Customer")
             {
                 Stun();
+                healt--;
             }
 
             if (collision.gameObject.tag == "Water" && dash)
